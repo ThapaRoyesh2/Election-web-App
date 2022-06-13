@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Election</title>
+  </head>
+  <body>
+    <header id="header" class="bg-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <a href="/?lng=eng" class="logo">
+              <img
+                src="https://byterumors.com/wp-content/uploads/2021/09/ezgif.com-gif-maker-1.gif"
+                alt=""
+                class="img-fluid"
+                href ="merointernship.com"
+              />
+            </a>
+          </div>
+          <div class="col-md-6 text-center">
+            <h1 class="header-title mb-0" id="c">
+              <a style="color: black" href="/?lng=eng">
+                स्थानीय तह निर्वाचन २०७९
+              </a>
+            </h1>
+          </div>
+          <div class="col-md-3 text-end">
+            <div class="lang">
+             <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" src="https://www.ashesh.com.np/linknepali-time.php?time_only=no&font_color=333333&aj_time=yes&font_size=14&line_brake=1&sec_time=no&nst=yes&api=861155m273" width="195" height="45"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="page-banner py-5" style="background-color: #2a3d77">
+      <div class="container">
+        <div class="form-wrapper">
+          <div class="form-container">
+            <form id="frm_search" class="row g-3">
+              <div class="col-xs-12 col-md form-group">
+                <select
+                  id="provinceDD"
+                  name="provinceDD"
+                  class="form-select"
+                  required=""
+                  onchange="selectState(this.value)"
+                ></select>
+              </div>
+              <div class="col-xs-12 col-md form-group">
+                <select
+                  id="districtDD"
+                  name="districtDD"
+                  class="form-select"
+                  required=""
+                  onchange="selectDistrict(this.value)"
+                ></select>
+              </div>
+              <div class="col-xs-12 col-md form-group">
+                <select
+                  id="locationDD"
+                  name="locationDD"
+                  class="form-select"
+                  required=""
+                ></select>
+              </div>
+              <div class="col-xs-12 col-md form-group">
+                <button
+                  type="button"
+                  id="search-result"
+                  class="btn w-100 ink-reaction btn-raised btn-primary"
+                  onclick="search();"
+                >
+                  <i class="fa fa-search" aria-hidden="true"></i> खोज्‍नुहोस्
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row flex-row justify-content-lg-between mt-4">
+        <div class="col-xs-12 col-lg">
+          <nav aria-label="breadcrumb " class=" ">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a href="">स्थानीय तह निर्वाचन</a>
+              </li>
+              <!-- <li class="breadcrumb-item">
+                <a href="">वाग्मती प्रदेश</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="">मकवानपुर</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                हेटौंडा उपमहानगरपालिका
+              </li> -->
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="card p-3 my-4">
+        <div class="row">
+          <div class="col-xs-12 col-lg">
+          <div class="container"> 
+            <h2>प्रमुख</h2>
+            <table class="table table-hover  table-dark">
+                  <thead> 
+                    <tr>
+                      <th scope="col">स्थान</th>
+                      <th scope="col">उम्मेदवार</th>
+                      <th scope="col">पार्टी</th>
+                      <th scope="col">मत गणना</th>
+                      <!-- <th scope="col">भिन्नता</th> -->
+                    </tr>
+                  </thead>
+                  <tbody id="score">
+                   
+                  </tbody>
+            </table>
+          </div>            
+                              </div>
+                            </div>
+                          </div>
+
+                              <div class="card p-3 my-4">
+        <div class="row">
+          <div class="col-xs-12 col-lg">
+          <div class="container">
+              <h2>उपप्रमुख</h2>
+            <table class="table table-hover  table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">स्थान</th>
+                      <th scope="col">उम्मेदवार</th>
+                      <th scope="col">पार्टी</th>
+                      <th scope="col">मत गणना</th>
+                      <!-- <th scope="col">भिन्नता</th> -->
+                    </tr>
+                  </thead>
+                  <tbody id="scoreSub">
+                   
+                  </tbody>
+            </table>
+          </div>            
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+    // states
+    let provinceDD = document.getElementById("provinceDD");
+    async function getStates() {
+      let response = await fetch(
+        "https://result.election.gov.np/JSONFiles/Election2079/Local/Lookup/states.json"
+      ).then((response) => response.json());
+      if (response) {
+        insertStates(response);
+        // console.log(response);
+      }
+    }
+    getStates();
+    function insertStates(states) {
+      var k = '<select> <option value="" selected="">प्रदेश</option>';
+      for (i = 0; i < states.length; i++) {
+        k +=
+          "<option " +
+          "value=" +
+          states[i].id +
+          ">" +
+          states[i].name +
+          "</option>";
+      }
+      k += "</select>";
+      document.getElementById("provinceDD").innerHTML = k;
+    }
+    // district
+    let districtDD = document.getElementById("districtDD");
+    async function getDistricts(stateId) {
+      let response = await fetch(
+        "https://result.election.gov.np/JSONFiles/Election2079/Local/Lookup/districts.json"
+      ).then((response) => response.json());
+      if (response) {
+        let filteredDistrict = response.filter(
+          (data) => data.parentId == stateId
+        );
+        insertDistricts(filteredDistrict);
+        // console.log(filteredDistrict);
+      }
+    }
+    // getDistricts();
+
+    function insertDistricts(district) {
+      var k = '<select> <option value="" selected=""> जिल्ला </option>';
+      for (i = 0; i < district.length; i++) {
+        k +=
+          "<option " +
+          "value=" +
+          district[i].id +
+          ">" +
+          district[i].name +
+          "</option>";
+      }
+      k += "</select>";
+      document.getElementById("districtDD").innerHTML = k;
+    }
+
+    function selectState() {
+      console.log(provinceDD.value);
+      getDistricts(provinceDD.value);
+    }
+
+    // localbodies
+    let locationDD = document.getElementById("locationDD");
+    async function getLocalBodies(stateId) {
+      let response = await fetch(
+        "https://result.election.gov.np/JSONFiles/Election2079/Local/Lookup/localbodies.json"
+      ).then((response) => response.json());
+      if (response) {
+        let filteredLocalBodies = response.filter(
+          (data) => data.parentId == stateId
+        );
+        insertLocalBodies(filteredLocalBodies);
+        console.log(filteredLocalBodies);
+      }
+    }
+
+    getLocalBodies();
+    function insertLocalBodies(localbodies) {
+      var k =
+        '<select> <option value="" selected="">नगरपालिका वा गाउँपालिका</option>';
+      for (i = 0; i < localbodies.length; i++) {
+        k +=
+          "<option " +
+          "value=" +
+          localbodies[i].id +
+          ">" +
+          localbodies[i].name +
+          "</option>";
+      }
+      k += "</select>";
+      document.getElementById("locationDD").innerHTML = k;
+    }
+
+    function selectDistrict() {
+      console.log(districtDD.value);
+      getLocalBodies(districtDD.value);
+    }
+
+    function search(){
+      var districtName = districtDD.options[districtDD.selectedIndex].text;
+      console.log(districtName)
+      var localbodyName = locationDD.options[locationDD.selectedIndex].text;
+      console.log(localbodyName)
+      getVotes(districtName, localbodyName);
+
+    }
+
+    let post = "प्रमुख"
+
+    async function getVotes(district, localBody) {
+      let response = await fetch(
+        "https://result.election.gov.np/JSONFiles/Election2079/Local/VoteCountProvince"+ provinceDD.value+".json"
+      ).then((response) => response.json());
+      if (response) {
+        let filteredVote = response.filter(
+          (data) => data.DistrictName == district && data.LocalBodyName == localBody
+        );
+        console.log(filteredVote);
+
+          filterByPost( filteredVote);
+
+      }
+    }
+
+    
+
+    function filterByPost(filteredVote)
+    {
+       let byMayor =  filteredVote.filter((data)=> data.PostName =="प्रमुख");
+       let bySubmayor =  filteredVote.filter((data)=> data.PostName =="उपप्रमुख");
+
+       if(byMayor){
+
+         insertMayorData(byMayor)
+       }
+       if(bySubmayor){
+
+         insertSubmayorData(bySubmayor)
+       }
+    }
+
+    function insertMayorData(byPost){
+      var k =""
+      for (i = 0; i < 5; i++) {
+        k +=
+         "<tr><td >" +
+        byPost[i].Rank  +
+          "</td><td >" +
+          byPost[i].CandidateName +
+
+          "</td><td >" +
+          byPost[i].PoliticalPartyName +
+          
+          "</td><td>" +
+          byPost[i].TotalVotesRecieved +
+          
+          "</td></tr>"
+      }
+      document.getElementById("score").innerHTML = k ;
+
+    }
+       function insertSubmayorData(byPost){
+         console.log(byPost)
+      var k =""
+      for (i = 0; i < 5; i++) {
+        k +=
+         "<tr><td >" +
+          byPost[i].Rank  +
+          "</td><td >" +
+          byPost[i].CandidateName +
+
+          "</td><td >" +
+          byPost[i].PoliticalPartyName +
+          
+          "</td><td>" +
+          byPost[i].TotalVotesRecieved +
+          
+          "</td></tr>"
+      }
+      document.getElementById("scoreSub").innerHTML = k ;
+
+    }
+
+  </script>
+</html>
